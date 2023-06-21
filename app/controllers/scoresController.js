@@ -21,3 +21,10 @@ export const getScore = catchAsyncErrors(async (req, res) => {
     res.json({ username: score.username, score: score.score });
 
 });
+
+export const getLeaderboard = catchAsyncErrors(async (req, res) => {
+
+    const leaderboard = await Score.find().sort({ score: -1 }).limit(10);
+    res.json({ leaderboard });
+
+});
