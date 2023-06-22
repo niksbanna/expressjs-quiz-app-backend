@@ -24,6 +24,16 @@ export const getSingleQuestion = catchAsyncErrors(async (req, res) => {
     if (!question) {
         return new ErrorHandler('Question not found', 404);
     }
-    res.json(question);
+    const timestamp = new Date().getTime();
+    res.json({ question, timestamp });
+
+});
+
+
+export const getRandomQuestion = catchAsyncErrors(async (req, res) => {
+
+    const randomQuestion = await Question.aggregate([{ $sample: { size: 1 } }]);
+    const { question, _id, ...otherValues } = randomQuestion[0];
+    res.json({ question: question, questionId: _id });
 
 });

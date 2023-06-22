@@ -11,9 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^7.2.2",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.1.4",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.2"
   },
   "devDependencies": {
     "cors": "^2.8.5",

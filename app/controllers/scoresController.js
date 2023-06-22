@@ -11,6 +11,13 @@ export const storeScores = catchAsyncErrors(async (req, res) => {
 
 });
 
+export const getAllScores = catchAsyncErrors(async (req, res) => {
+
+    const scores = await Score.find();
+    res.json({ scores });
+
+});
+
 export const getScore = catchAsyncErrors(async (req, res) => {
 
     const username = req.params.username;
